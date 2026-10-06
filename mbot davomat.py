@@ -20,7 +20,7 @@ def send_message():
       " bo'lish uchun kanalga obuna bo'ling!"
   )
 
-  photo_path = r"C:\Users\USER\OneDrive\Рабочий стол\image.jpg.jpg"
+  photo_path = "image.jpg.jpg"
 
   try:
     with open(photo_path, "rb") as photo:
