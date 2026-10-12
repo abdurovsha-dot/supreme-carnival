@@ -8,7 +8,7 @@ SESSION_NAME = 'my_session'
 
 # Guruhlar ID'si (yoki username'lari)
 CHAT_IDS = [
-    -1003271562585,  # 1-guruh
+    -1003719999075,  # 1-guruh
     # Boshqa guruhlar...
 ]
 
