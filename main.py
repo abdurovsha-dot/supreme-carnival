@@ -3,14 +3,14 @@ import os
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-# GitHub Secrets'dan ma'lumotlarni o'qiydi
+
 API_ID = int(os.environ.get('API_ID', 0))
 API_HASH = os.environ.get('API_HASH', '')
 SESSION_STRING = os.environ.get('SESSION_STRING', '')
 
-# Guruhlar ID'si
+
 CHAT_IDS = [
-    -1003719999075,  # 1-guruh (o'zingiznikilarni qo'shishingiz mumkin)
+    -1003719999075, 
 ]
 
 MESSAGE_TEXT = (
