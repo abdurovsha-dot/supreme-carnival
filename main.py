@@ -1,28 +1,29 @@
 import asyncio
+import os
 from telethon import TelegramClient
+from telethon.sessions import StringSession
 
-# Telegram API ma'lumotlari (my.telegram.org saytidan olinadi)
-API_ID = 33493524  # O'zingizning API_ID raqamingizni yozing
-API_HASH = 'sizning_api_hash_ingiz'
-SESSION_NAME = 'my_session'
+# GitHub Secrets'dan ma'lumotlarni o'qiydi
+API_ID = int(os.environ.get('API_ID', 0))
+API_HASH = os.environ.get('API_HASH', '')
+SESSION_STRING = os.environ.get('SESSION_STRING', '')
 
-# Guruhlar ID'si (yoki username'lari)
+# Guruhlar ID'si
 CHAT_IDS = [
-    -1003719999075,  # 1-guruh
-    # Boshqa guruhlar...
+    -1003271562585,  # 1-guruh (o'zingiznikilarni qo'shishingiz mumkin)
 ]
 
 MESSAGE_TEXT = (
     "#muhim\n\n"
     "❗️ <i>\"<b>Mahalla yettiligi</b>\" xodimlari \"<b>Raqamli mahalla xodim</b>\" mobil ilovasi orqali davomatdan o'tishni unutmang.</i>\n\n"
     "📱 <a href=\"https://t.me/c/3271562585/1290\">Mahalla yettiligi uchun mobil ilova</a>\n\n"
-    "⭐️ Raqamli \"MAHALLA\" platformasi bo'yicha barcha yangiliklardan xabardor bo'lish uchun kanalga obuna bo'ling!"
+    "⭐️ Raqamli \"MAHALLA\" platformasi bo'yicha barcha yangiliklardan xabardor bo'lish uchun kanalga obuna keling!"
 )
 
-IMAGE_PATH = 'image.jpg' # GitHub'ga yuklagan rasm nomi
+IMAGE_PATH = 'image.jpg'
 
 async def main():
-    async with TelegramClient(SESSION_NAME, API_ID, API_HASH) as client:
+    async with TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH) as client:
         for chat_id in CHAT_IDS:
             try:
                 await client.send_file(
@@ -32,10 +33,9 @@ async def main():
                     parse_mode='html'
                 )
                 print(f"Xabar yuborildi: {chat_id}")
-                await asyncio.sleep(2) # Guruhlar orasida 2 soniya pauza
+                await asyncio.sleep(2)
             except Exception as e:
                 print(f"Xatolik {chat_id}: {e}")
 
 if __name__ == '__main__':
-    asyncWorker = main()
-    asyncio.run(asyncWorker)
+    asyncio.run(main())
