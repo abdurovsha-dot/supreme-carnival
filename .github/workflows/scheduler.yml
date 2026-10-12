@@ -1,0 +1,32 @@
+name: Telegram Auto Poster
+
+on:
+  schedule:
+    # UTC vaqti bo'yicha dushanba-juma soat 02:30 da ishga tushadi 
+    # (Toshkent vaqti bilan 07:30 ga to'g'ri keladi)
+    - cron: '30 2 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository'ni yuklab olish
+        uses: actions/checkout@v3
+
+      - name: Python o'rnatish
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Kutubxonalarni o'rnatish
+        run: |
+          pip install telethon
+
+      - name: Skriptni ishga tushirish
+        env:
+          API_ID: ${{ secrets.TELEGRAM_API_ID }}
+          API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
+          SESSION_STRING: ${{ secrets.TELEGRAM_SESSION }}
+        run: |
+          python main.py
