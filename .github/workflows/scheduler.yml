@@ -2,8 +2,6 @@ name: Telegram Auto Poster
 
 on:
   schedule:
-    # UTC vaqti bo'yicha dushanba-juma soat 02:30 da ishga tushadi 
-    # (Toshkent vaqti bilan 07:30 ga to'g'ri keladi)
     - cron: '30 2 * * 1-5'
   workflow_dispatch:
 
@@ -25,8 +23,8 @@ jobs:
 
       - name: Skriptni ishga tushirish
         env:
-          API_ID: ${{ secrets.TELEGRAM_API_ID }}
-          API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
-          SESSION_STRING: ${{ secrets.TELEGRAM_SESSION }}
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          SESSION_STRING: ${{ secrets.SESSION_STRING }}
         run: |
           python main.py
