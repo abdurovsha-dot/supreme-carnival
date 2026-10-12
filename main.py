@@ -10,7 +10,7 @@ SESSION_STRING = os.environ.get('SESSION_STRING', '')
 
 # Guruhlar ID'si
 CHAT_IDS = [
-    -1003271562585,  # 1-guruh (o'zingiznikilarni qo'shishingiz mumkin)
+    -1003719999075,  # 1-guruh (o'zingiznikilarni qo'shishingiz mumkin)
 ]
 
 MESSAGE_TEXT = (
