@@ -3,14 +3,23 @@ import os
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
+# Xavfsiz o'qish va tekshirish
+raw_api_id = os.environ.get('API_ID', '').strip()
+API_HASH = os.environ.get('API_HASH', '').strip()
+SESSION_STRING = os.environ.get('SESSION_STRING', '').strip()
 
-API_ID = int(os.environ.get('API_ID', 0))
-API_HASH = os.environ.get('API_HASH', '')
-SESSION_STRING = os.environ.get('SESSION_STRING', '')
+print(f"DEBUG - API_ID uzunligi: {len(raw_api_id)}")
+print(f"DEBUG - API_HASH mavjudmi: {bool(API_HASH)}")
+print(f"DEBUG - SESSION_STRING mavjudmi: {bool(SESSION_STRING)}")
 
+try:
+    API_ID = int(raw_api_id) if raw_api_id else 0
+except ValueError:
+    API_ID = 0
 
+# Guruhlar ID'si
 CHAT_IDS = [
-    -1003719999075, 
+    -1003719999075,  # 1-guruh
 ]
 
 MESSAGE_TEXT = (
@@ -23,6 +32,10 @@ MESSAGE_TEXT = (
 IMAGE_PATH = 'image.jpg'
 
 async def main():
+    if API_ID == 0 or not API_HASH or not SESSION_STRING:
+        print("XATOLIK: API_ID, API_HASH yoki SESSION_STRING topilmadi yoki bo'sh!")
+        return
+
     async with TelegramClient(StringSession(SESSION_STRING), API_ID, API_HASH) as client:
         for chat_id in CHAT_IDS:
             try:
