@@ -2,7 +2,7 @@ import asyncio
 from telethon import TelegramClient
 
 # Telegram API ma'lumotlari (my.telegram.org saytidan olinadi)
-API_ID = 1234567  # O'zingizning API_ID raqamingizni yozing
+API_ID = 33493524  # O'zingizning API_ID raqamingizni yozing
 API_HASH = 'sizning_api_hash_ingiz'
 SESSION_NAME = 'my_session'
 
