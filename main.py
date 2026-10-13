@@ -17,9 +17,10 @@ try:
 except ValueError:
     API_ID = 0
 
-# Guruhlar ID'si
+# Guruhlar ID'si (ikkita guruh kiritildi)
 CHAT_IDS = [
-    -1003719999075,  # 1-guruh
+    -5304787761,
+    -1003719999075,
 ]
 
 MESSAGE_TEXT = (
