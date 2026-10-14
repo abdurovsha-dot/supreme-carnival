@@ -19,8 +19,8 @@ except ValueError:
 
 # Guruhlar ID'si (ikkita guruh kiritildi)
 CHAT_IDS = [
-    -5304787761,
-    -1003719999075,
+    -1002171469031,
+    -1001662858153,
 ]
 
 MESSAGE_TEXT = (
