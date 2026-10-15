@@ -2,8 +2,9 @@ name: Mahalla Attendance Bot
 
 on:
   schedule:
-    - cron: '0 4 * * *'  # Har kuni ertalab soat 04:00 da (UTC) ishlaydi
-  workflow_dispatch:     # Qo'lda "Run workflow" bosib tekshirish uchun
+    # Dushanbadan jumaga qadar Toshkent vaqti bilan soat 09:00 da (UTC bo'yicha 04:00 da) ishlaydi
+    - cron: '0 4 * * 1-5'
+  workflow_dispatch:
 
 jobs:
   run-attendance-bot:
@@ -29,6 +30,5 @@ jobs:
       - name: Python skriptini ishga tushirish
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          CHAT_ID: ${{ secrets.CHAT_ID }}
         run: |
           python attendance.py
