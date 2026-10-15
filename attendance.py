@@ -27,7 +27,7 @@ try:
 
     # Telegram bot orqali yuborish
     TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
-    CHAT_ID = os.environ.get("CHAT_ID")
+    CHAT_ID = -1003271562585  # Aniq guruh ID raqami to'g'ridan-to'g'ri yozildi
 
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendPhoto"
     with open("attendance.png", "rb") as photo:
