@@ -10,20 +10,21 @@ options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--window-size=1920,1080")
-
-# MUHIM: Sayt to'liq yuklanishini kutib qotib qolmasligi uchun strategiya
 options.page_load_strategy = 'eager'
 
 driver = webdriver.Chrome(options=options)
-driver.set_page_load_timeout(60) # Sahifa yuklanishi uchun 60 soniya vaqt beramiz
+driver.set_page_load_timeout(40)
 
 try:
     target_url = "https://mahalla.ijro.uz/attendance/list?region_id=00s0eed0000region000011&district_id=00s0eed0000region000091&page=1&offset=0&limit=20&statuses=5&reason_category=2&positions=1"
     
     print("Saytga ulanish boshlandi...")
-    driver.get(target_url)
+    try:
+        driver.get(target_url)
+    except Exception as e:
+        print("Eslatma: Saytni yuklash vaqtida timeout bo'ldi, lekin skrinshot olishga harakat qilamiz:", e)
     
-    # Angular va ma'lumotlar serverdan to'liq kelib chiqishi uchun kutamiz
+    # Sahifadagi jadval to'liq ko'rinishi uchun kutamiz
     time.sleep(10)
 
     # Skrinshot olib saqlaymiz
@@ -32,7 +33,7 @@ try:
 
     # Telegram bot orqali yuborish
     TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
-    CHAT_ID = -1003271562585  # Siz ko'rsatgan aniq guruh ID raqami
+    CHAT_ID = -1003271562585  # Sizning guruh ID raqamingiz
 
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendPhoto"
     with open("attendance.png", "rb") as photo:
