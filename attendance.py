@@ -13,7 +13,7 @@ options.add_argument("--window-size=1920,1080")
 options.page_load_strategy = 'eager'
 
 driver = webdriver.Chrome(options=options)
-driver.set_page_load_timeout(40)
+driver.set_page_load_timeout(30)
 
 try:
     target_url = "https://mahalla.ijro.uz/attendance/list?region_id=00s0eed0000region000011&district_id=00s0eed0000region000091&page=1&offset=0&limit=20&statuses=5&reason_category=2&positions=1"
@@ -22,10 +22,10 @@ try:
     try:
         driver.get(target_url)
     except Exception as e:
-        print("Eslatma: Saytni yuklash vaqtida timeout bo'ldi, lekin skrinshot olishga harakat qilamiz:", e)
+        print("Diqqat: Sayt yuklanishida vaqt chegarasi (timeout) oshdi, lekin skrinshot olish davom etadi:", e)
     
-    # Sahifadagi jadval to'liq ko'rinishi uchun kutamiz
-    time.sleep(10)
+    # Sahifadagi ma'lumotlar to'liq chiqishi uchun kutamiz
+    time.sleep(12)
 
     # Skrinshot olib saqlaymiz
     driver.save_screenshot("attendance.png")
