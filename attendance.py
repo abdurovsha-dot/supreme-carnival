@@ -10,22 +10,21 @@ options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--window-size=1920,1080")
-options.page_load_strategy = 'eager'
+options.page_load_strategy = 'none'  # Sahifaning to'liq yuklanishini kutmasdan davom etish
 
 driver = webdriver.Chrome(options=options)
-driver.set_page_load_timeout(30)
 
 try:
     target_url = "https://mahalla.ijro.uz/attendance/list?region_id=00s0eed0000region000011&district_id=00s0eed0000region000091&page=1&offset=0&limit=20&statuses=5&reason_category=2&positions=1"
     
-    print("Saytga ulanish boshlandi...")
+    print("Saytga so'rov yuborilmoqda...")
     try:
         driver.get(target_url)
-    except Exception as e:
-        print("Diqqat: Sayt yuklanishida vaqt chegarasi (timeout) oshdi, lekin skrinshot olish davom etadi:", e)
+    except Exception as err:
+        print("Saytni yuklashda vaqt cho'zildi, lekin skrinshotga harakat qilamiz:", err)
     
-    # Sahifadagi ma'lumotlar to'liq chiqishi uchun kutamiz
-    time.sleep(12)
+    # Ma'lumotlar sahifada to'liq chiqib kelishi uchun 15 soniya mo'ljallab kutamiz
+    time.sleep(15)
 
     # Skrinshot olib saqlaymiz
     driver.save_screenshot("attendance.png")
