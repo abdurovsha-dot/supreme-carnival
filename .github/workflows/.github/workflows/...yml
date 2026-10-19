@@ -1,2 +1,8 @@
-- name: Check site reachability
-  run: curl -I -m 10 https://mahalla.ijro.uz || echo "Sayt xorijdan ochilmayapti!"
+steps:
+      - name: Repozitoriyni yuklash
+        uses: actions/checkout@v4
+
+      - name: Python o'rnatish
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
