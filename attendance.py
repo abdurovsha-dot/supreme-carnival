@@ -13,14 +13,13 @@ options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-gpu")
 options.add_argument("--window-size=1920,1080")
 
-# Bot sifatida darhol bloklanmasligi uchun haqiqiy User-Agent
+# Bot sifatida bloklanmasligi uchun haqiqiy User-Agent
 options.add_argument(
     "--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
 
-# 'none' strategiyasi: brauzer barcha og'ir skriptlar yuklanishini kutmaydi,
-# nazoratni darhol Python kodiga qaytaradi
+# Brauzer barcha og'ir resurslarni kutmasdan darhol boshqaruvni qaytaradi
 options.page_load_strategy = 'none'
 
 driver = webdriver.Chrome(options=options)
@@ -63,7 +62,12 @@ try:
             "caption": "📊 O'rta Chirchiq tumani: Sababsiz ishga kelmagan Mahalla raislari ro'yxati"
         }
         res = requests.post(url, files=files, data=data, timeout=30)
+        
+        # Javobni konsolga chiqarish
         print("Telegram javobi:", res.status_code, res.text)
+        
+        # AGAR XATOLIK BO'LSA, GITHUB ACTIONS'NI TO'XTATIB KO'RSATISH UCHUN:
+        res.raise_for_status()
 
 finally:
     driver.quit()
