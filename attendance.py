@@ -47,22 +47,23 @@ try:
     driver.save_screenshot(screenshot_path)
     print("Skrinshot saqlandi.")
 
-    # Telegram orqali yuborish
-    TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
+# Telegram orqali shaxsiy profildan yuborish
+    from telethon.sync import TelegramClient
+    from telethon.sessions import StringSession
+
+    api_id = int(os.environ.get("TG_API_ID"))
+    api_hash = os.environ.get("TG_API_HASH")
+    session_str = os.environ.get("TG_SESSION")
     CHAT_ID = -1003271562585
 
-    if not TELEGRAM_TOKEN:
-        raise ValueError("TELEGRAM_TOKEN muhit o'zgaruvchisi topilmadi!")
-
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendPhoto"
-    with open(screenshot_path, "rb") as photo:
-        files = {"photo": photo}
-        data = {
-            "chat_id": CHAT_ID,
-            "caption": "📊 O'rta Chirchiq tumani: Sababsiz ishga kelmagan Mahalla raislari ro'yxati"
-        }
-        res = requests.post(url, files=files, data=data, timeout=30)
-        
+    print("Shaxsiy profildan Telegramga ulanish...")
+    with TelegramClient(StringSession(session_str), api_id, api_hash) as client:
+        client.send_file(
+            CHAT_ID,
+            screenshot_path,
+            caption="📊 O'rta Chirchiq tumani: Sababsiz ishga kelmagan Mahalla raislari ro'yxati"
+        )
+        print("Rasm shaxsiy profilingiz nomidan muvaffaqiyatli yuborildi!")
         # Javobni konsolga chiqarish
         print("Telegram javobi:", res.status_code, res.text)
         
