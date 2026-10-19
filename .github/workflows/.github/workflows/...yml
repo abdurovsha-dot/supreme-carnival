@@ -1,0 +1,2 @@
+- name: Check site reachability
+  run: curl -I -m 10 https://mahalla.ijro.uz || echo "Sayt xorijdan ochilmayapti!"
