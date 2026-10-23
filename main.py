@@ -25,9 +25,10 @@ CHAT_IDS = [
 
 MESSAGE_TEXT = (
     "#muhim\n\n"
-    "❗️ <i>\"<b>Mahalla yettiligi</b>\" xodimlari \"<b>Raqamli mahalla xodim</b>\" mobil ilovasi orqali davomatdan o'tishni unutmang.</i>\n\n"
-    "📱 <a href=\"https://t.me/c/3271562585/1290\">Mahalla yettiligi uchun mobil ilova</a>\n\n"
-    "⭐️ Raqamli \"MAHALLA\" platformasi bo'yicha barcha yangiliklardan xabardor bo'lish uchun kanalga obuna keling!"
+    "❗️<i>\"Mahalla yettiligi\"</i> xodimlari <i>\"Raqamli mahalla xodim\"</i> mobil ilovasi orqali davomatdan o'tishni unutmang.\n\n"
+    "📱 <a href=\"https://play.google.com/store/apps/details?id=uz.uniconsoft.mahallaxodim&hl=ru\">Mahalla yettiligi uchun mobil ilova</a>\n\n"
+    "📹 <a href=\"https://t.me/RMahallaijrouz/527\">Mobil ilova orqali davomat o'tish bo'yicha video qo'llanma</a>\n\n"
+    "<blockquote>📢 <a href=\"https://t.me/RMahallaijrouz\">“Raqamli mahalla” rasmiy kanal</a></blockquote>"
 )
 
 IMAGE_PATH = 'image.jpg'
