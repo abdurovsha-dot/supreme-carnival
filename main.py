@@ -28,6 +28,8 @@ MESSAGE_TEXT = (
     "❗️<i>\"Mahalla yettiligi\"</i> xodimlari <i>\"Raqamli mahalla xodim\"</i> mobil ilovasi orqali davomatdan o'tishni unutmang.\n\n"
     "📱 <a href=\"https://play.google.com/store/apps/details?id=uz.uniconsoft.mahallaxodim&hl=ru\">Mahalla yettiligi uchun mobil ilova</a>\n\n"
     "📹 <a href=\"https://t.me/RMahallaijrouz/527\">Mobil ilova orqali davomat o'tish bo'yicha video qo'llanma</a>\n\n"
+    "📲 Ilovani quyidagi havolalar orqali yangilang:\n\n"
+    "🌐 <a href=\"https://apps.apple.com/us/app/raqamli-mahalla-xodim/id6760182511\">Appstore</a> | 🌐 <a href=\"https://play.google.com/store/apps/details?id=uz.uniconsoft.mahallaxodim&hl=ru\">Playmarket</a>\n\n"
     "<blockquote>📢 <a href=\"https://t.me/RMahallaijrouz\">“Raqamli mahalla” rasmiy kanal</a></blockquote>"
 )
 
