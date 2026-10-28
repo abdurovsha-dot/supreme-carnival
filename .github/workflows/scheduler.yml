@@ -2,7 +2,7 @@ name: Telegram Auto Poster
 
 on:
   schedule:
-    - cron: '30 2 * * 1-5'
+    - cron: '00 2 * * 1-5'
   workflow_dispatch:
 
 jobs:
